@@ -1,0 +1,11 @@
+.env
+/__pycache__/
+/cogs/__pycache__/
+/constants/__pycache__/
+/pazaak_match/__pycache__/
+/pazaak_match/classes/__pycache__/
+/pazaak_match/enums/__pycache__/
+/db/__pycache__/
+/db/classes/__pycache__/
+/private/
+/env/
