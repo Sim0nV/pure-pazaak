@@ -20,6 +20,10 @@ class PazaakSFX(commands.Cog):
     SAME_CHANNEL_ERROR_STR = (
         "you must be in the same voice channel as me to use the sfx command!"
     )
+    FAIL_JOIN_ERROR_STR = (
+        "I have failed to join your voice channel! Please make sure the"
+        " channel is not private. "
+    )
 
     def __init__(self, bot):
         self.bot: commands.Bot = bot
@@ -166,9 +170,19 @@ class PazaakSFX(commands.Cog):
             if not voice_client or (
                 voice_client and not voice_client.is_connected()
             ):
-                # If voice client disconnected, connect and notify user
-                voice_client = await user_voice_channel.connect(self_deaf=True)
-                await ctx.reply(embed=Embed.from_dict(ON_EMBED_DICT))
+                try:
+                    # If voice client disconnected, connect and notify user
+                    voice_client = await user_voice_channel.connect(
+                        timeout=10.0, self_deaf=True
+                    )
+                    await ctx.reply(embed=Embed.from_dict(ON_EMBED_DICT))
+                except Exception as e:
+                    await ctx.reply(
+                        embed=self.get_error_embed(
+                            self.FAIL_JOIN_ERROR_STR + str(e),
+                            user,
+                        )
+                    )
             elif user_voice_channel.id != voice_client.channel.id:
                 # If user not in same voice channel as bot, send error
                 await ctx.reply(
