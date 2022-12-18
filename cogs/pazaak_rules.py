@@ -70,8 +70,8 @@ class PazaakRules(commands.Cog):
             await interaction.user.send(
                 embed=Embed.from_dict(self.RULES_EMBED_DICT)
             )
-        except Exception:
-            pass
+        except Exception as e:
+            print("Failed to send rules embed: " + str(e))
 
     @commands.command(name="pazaak_rules")
     async def pazaak_rules_command(self, ctx: commands.Context):
@@ -92,8 +92,8 @@ class PazaakRules(commands.Cog):
             await ctx.message.author.send(
                 embed=Embed.from_dict(self.RULES_EMBED_DICT)
             )
-        except Exception:
-            pass
+        except Exception as e:
+            print("Failed to send rules embed: " + str(e))
 
 
 async def setup(bot):
