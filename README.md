@@ -16,7 +16,7 @@
   <a href="https://github.com/psf/black">
     <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style: Black">
   </a>
-  <a href="https://github.com/psf/black">
+  <a href="https://github.com/Sim0nV/pure-pazaak/blob/master/LICENSE.txt">
       <img src="https://img.shields.io/badge/license-AGPL--3.0-blue" alt="License: AGPL-3.0">
   </a>
 </p>
