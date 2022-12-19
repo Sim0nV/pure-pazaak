@@ -88,7 +88,15 @@ class MatchMessages:
             current_player_message = self.player_two_message
             other_player_message = self.player_one_message
 
-        await self.server_message.edit(content=content, embed=embed, view=None)
+        try:
+            await self.server_message.edit(
+                content=content, embed=embed, view=None
+            )
+        except Exception as e:
+            # Catch server message edit failure so match continues
+            # even if server message deleted
+            print("Failed to edit server message: " + str(e))
+
         await current_player_message.edit(
             content=content, embed=embed, view=view
         )
