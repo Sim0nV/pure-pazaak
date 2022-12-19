@@ -52,7 +52,7 @@
 - Randomized embed thumbnails
 - Toggleable match sound effects
 - Saves user and match stats to MongoDB
-- The following hybrid (slash/regular) commands:
+- The following commands:
 
 | Command                                | Action                                                                                                    |
 | :------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
