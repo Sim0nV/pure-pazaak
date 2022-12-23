@@ -20,7 +20,7 @@ class ChallengeMenu(View):
     ):
         super().__init__()
         self.value = None
-        self.timeout = 30.0
+        self.timeout = 105.0
         self.player_one = player_one
         self.player_two = player_two
         self.message = message
