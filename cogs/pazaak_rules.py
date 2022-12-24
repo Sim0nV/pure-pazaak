@@ -97,7 +97,7 @@ class PazaakRules(commands.Cog):
 
 
 async def setup(bot):
-    """Adds pazaak help cog to passed bot
+    """Adds pazaak rules cog to passed bot
 
     Args:
         bot (discord.Bot): Bot for cog to be added
