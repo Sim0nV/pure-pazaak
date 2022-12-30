@@ -39,11 +39,11 @@
 ## 🃏 Features
 
 <p align="center">
-  <a href="https://streamable.com/enoapv">
+  <a href="https://youtu.be/MxxmQAGs53o">
   <img src="https://user-images.githubusercontent.com/78996965/207284997-cfa944d8-aad9-4bf8-a1ed-0c2375fae55a.gif">
 </p>
 <p align="center">
-  <a href="https://streamable.com/enoapv">
+  <a href="https://youtu.be/MxxmQAGs53o">
   Check out our launch trailer to see these features in action!
 </p>
 
