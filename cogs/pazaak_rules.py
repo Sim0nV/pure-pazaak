@@ -61,11 +61,18 @@ class PazaakRules(commands.Cog):
         """
         await interaction.response.defer()
         if interaction.guild:
+            # Dictionary for check DMs embed
+            CHECK_DMS_EMBED_DICT: dict = {
+                "title": "Pazaak Ruleset",
+                "description": "<@"
+                + str(interaction.user.id)
+                + ">, please check your DMs for the Pazaak ruleset.",
+                "color": colors.RULES_HELP_COLOUR_VALUE,
+                "thumbnail": {"url": env.RULES_HELP_THUMBNAIL},
+            }
             # If command sent in server rather than DMs, reply in server
             await interaction.followup.send(
-                content="<@"
-                + str(interaction.user.id)
-                + ">, please check your DMs for the Pazaak ruleset."
+                embed=Embed.from_dict(CHECK_DMS_EMBED_DICT)
             )
         try:
             await interaction.user.send(
