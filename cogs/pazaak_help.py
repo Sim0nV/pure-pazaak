@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord import app_commands, Embed
 
 from constants import env, colors
+from utils.get_prefix_info_embed import get_prefix_info_embed
 
 
 class PazaakHelp(commands.Cog):
@@ -14,23 +15,23 @@ class PazaakHelp(commands.Cog):
         "thumbnail": {"url": env.RULES_HELP_THUMBNAIL},
         "fields": [
             {
-                "name": "``/pazaak [<@user>]\n$p [<@user>]``",
+                "name": "``/pazaak @user``",
                 "value": "Challenge someone to a Pazaak match",
             },
             {
-                "name": "``/rules\n$pazaak_rules``",
+                "name": "``/rules``",
                 "value": "Learn the rules of Pazaak",
             },
             {
-                "name": "``/sfx\n$pazaak_sfx``",
+                "name": "``/sfx``",
                 "value": "Toggle Pazaak sound effects during the match",
             },
             {
-                "name": "``/stats [<@user>] \n$ps [<@user>]``",
+                "name": "``/stats [@user]``",
                 "value": "View stats of a user or yourself",
             },
             {
-                "name": "``/help\n$pazaak_help``",
+                "name": "``/help``",
                 "value": "Show complete list of commands for Pure Pazaak",
             },
             {
@@ -69,8 +70,7 @@ class PazaakHelp(commands.Cog):
         Args:
             ctx (commands.Context): Context of command
         """
-        await ctx.defer()
-        await ctx.reply(embed=Embed.from_dict(self.HELP_EMBED_DICT))
+        await ctx.reply(embed=get_prefix_info_embed("/help"))
 
 
 async def setup(bot):

@@ -54,14 +54,14 @@
 - Saves user and match stats to MongoDB
 - The following commands:
 
-| Command                                | Action                                                                                                    |
-| :------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| `/pazaak [<@user>]`</br>`$p [<@user>]` | Challenges the mentioned user to a Pazaak match or shows usage embed                                      |
-| `/rules`</br>`$pazaak_rules`           | DMs the Pazaak ruleset                                                                                    |
-| `/sfx`</br>`$pazaak_sfx`               | Toggles Pazaak sound effects                                                                              |
-| `/stats [<@user>]`</br>`$ps [<@user>]` | Displays the stats of yourself or the mentioned user,</br>including your match record with mentioned user |
-| `/help`</br>`$pazaak_help`             | Shows a complete list of commands for Pure Pazaak                                                         |
-| `/acknowledgements`                    | Outputs credits and special thanks                                                                        |
+| Command             | Action                                                                                                    |
+| :------------------ | :-------------------------------------------------------------------------------------------------------- |
+| `/pazaak [<@user>]` | Challenges the mentioned user to a Pazaak match or shows usage embed                                      |
+| `/rules`            | DMs the Pazaak ruleset                                                                                    |
+| `/sfx`              | Toggles Pazaak sound effects                                                                              |
+| `/stats [<@user>]`  | Displays the stats of yourself or the mentioned user,</br>including your match record with mentioned user |
+| `/help`             | Shows a complete list of commands for Pure Pazaak                                                         |
+| `/acknowledgements` | Outputs credits and special thanks                                                                        |
 
 ## 📄 Dependencies
 

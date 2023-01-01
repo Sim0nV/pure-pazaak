@@ -63,7 +63,7 @@ async def update_presence(bot: PurePazaakBot):
     await bot.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.playing,
-            name=("$pazaak | " + str(len(bot.guilds)) + " servers"),
+            name=("/pazaak | " + str(len(bot.guilds)) + " servers"),
         )
     )
 

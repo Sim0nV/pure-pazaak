@@ -6,6 +6,7 @@ import asyncio
 from random import randint
 
 from constants import colors, env, strings
+from utils.get_prefix_info_embed import get_prefix_info_embed
 
 
 class PazaakSFX(commands.Cog):
@@ -214,12 +215,10 @@ class PazaakSFX(commands.Cog):
             # If slash command,
             # set user to interaction's user
             user = ctx.interaction.user
+            await self.toggle_sfx(ctx, user)
         elif ctx.message:
-            # If discord command (used $ prefix),
-            # set user to message's author
-            user = ctx.message.author
-
-        await self.toggle_sfx(ctx, user)
+            # If prefix command, reply with prefix info embed
+            await ctx.reply(embed=get_prefix_info_embed("/sfx"))
 
     @commands.command(name="pazaak_sfx")
     async def pazaak_sfx_command(self, ctx: commands.Context):
@@ -228,7 +227,7 @@ class PazaakSFX(commands.Cog):
         Args:
             ctx (commands.Context): Context of command
         """
-        await self.toggle_sfx(ctx, ctx.message.author)
+        await ctx.reply(embed=get_prefix_info_embed("/sfx"))
 
 
 async def setup(bot):

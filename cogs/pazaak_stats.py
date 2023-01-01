@@ -6,6 +6,7 @@ from constants import env, colors
 from db.db import get_player_stats, get_match_record
 from db.classes.player_stats import PlayerStats
 from db.classes.match_record import MatchRecord
+from utils.get_prefix_info_embed import get_prefix_info_embed
 
 
 class PazaakStats(commands.Cog):
@@ -127,12 +128,7 @@ class PazaakStats(commands.Cog):
         Args:
             ctx (commands.Context): Context of command
         """
-        await ctx.defer()
-        embed = self.get_stats_embed(
-            ctx.message.author,
-            ctx.message.mentions[0] if ctx.message.mentions else None,
-        )
-        await ctx.reply(embed=embed)
+        await ctx.reply(embed=get_prefix_info_embed("/stats"))
 
 
 async def setup(bot):

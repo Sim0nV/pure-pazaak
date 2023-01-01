@@ -4,6 +4,7 @@ from discord import Embed
 
 from constants import env, colors, strings
 from pazaak_match import challenge_player
+from utils.get_prefix_info_embed import get_prefix_info_embed
 
 from random import randint
 
@@ -15,16 +16,12 @@ class Pazaak(commands.Cog):
     USAGE_EMBED_DICT = {
         "title": "Welcome to the Game of Pazaak",
         "description": (
-            "Use the command ``/pazaak <@player>`` or ``$p <@player>`` to"
+            "Use the command ``/pazaak @player`` to"
             " challenge someone to a set of Pazaak!"
         ),
         "color": colors.PAZAAK_CHALLENGE_COLOUR_VALUE,
         "thumbnail": {"url": env.USAGE_THUMBNAIL},
-        "footer": {
-            "text": (
-                "Type /help or $pazaak_help for a complete list of commands"
-            )
-        },
+        "footer": {"text": "Type /help for a complete list of commands"},
     }
 
     CHALLENGE_SELF_ERROR_STR = "you cannot challenge yourself!"
@@ -57,7 +54,7 @@ class Pazaak(commands.Cog):
             "description": MENTION_MEMBER
             + ", "
             + error_message
-            + "\nUsage: ``$pazaak <@player>``",
+            + "\nUsage: ``/pazaak @player``",
             "color": colors.ERROR_COLOUR_VALUE,
             "thumbnail": {
                 "url": env.ERROR_THUMBNAILS[
@@ -141,12 +138,10 @@ class Pazaak(commands.Cog):
             # If slash command,
             # set player one to interaction's user
             player_one = ctx.interaction.user
+            await self.pazaak_command(ctx, player_one, user)
         elif ctx.message:
-            # If discord command (used $ prefix),
-            # set player one to message's author
-            player_one = ctx.message.author
-
-        await self.pazaak_command(ctx, player_one, user)
+            # If prefix command, reply with prefix info embed
+            await ctx.reply(embed=get_prefix_info_embed("/pazaak"))
 
     @commands.command(name="p")
     async def p_shortcut_command(self, ctx: commands.Context):
@@ -155,11 +150,7 @@ class Pazaak(commands.Cog):
         Args:
             ctx (commands.Context): Context of command
         """
-        await self.pazaak_command(
-            ctx,
-            ctx.message.author,
-            ctx.message.mentions[0] if ctx.message.mentions else None,
-        )
+        await ctx.reply(embed=get_prefix_info_embed("/pazaak"))
 
 
 async def setup(bot):

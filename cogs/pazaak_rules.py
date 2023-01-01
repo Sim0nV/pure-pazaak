@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord import app_commands, Embed
 
 from constants import env, colors
+from utils.get_prefix_info_embed import get_prefix_info_embed
 
 
 class PazaakRules(commands.Cog):
@@ -80,20 +81,7 @@ class PazaakRules(commands.Cog):
         Args:
             ctx (commands.Context): Context of command
         """
-        await ctx.defer()
-        if ctx.guild:
-            # If command sent in server rather than DMs, reply in server
-            await ctx.reply(
-                content="<@"
-                + str(ctx.message.author.id)
-                + ">, please check your DMs for the Pazaak ruleset."
-            )
-        try:
-            await ctx.message.author.send(
-                embed=Embed.from_dict(self.RULES_EMBED_DICT)
-            )
-        except Exception as e:
-            print("Failed to send rules embed: " + str(e))
+        await ctx.reply(embed=get_prefix_info_embed("/rules"))
 
 
 async def setup(bot):
