@@ -15,7 +15,7 @@ class PurePazaakBot(commands.Bot):
         """Initialize Discord bot with command prefix, intents"""
         # Set intents (bot permissions)
         intents = discord.Intents.default()
-        intents.message_content = True
+        intents.members = True
         # Initialize discord bot
         super().__init__(command_prefix="$", intents=intents)
         self.remove_command("help")  # Remove default discord help command
@@ -75,8 +75,14 @@ async def on_ready():
 
 
 @bot.event
-async def on_server_join(ctx):
+async def on_guild_join(guild: discord.Guild):
     """On server join callback"""
+    await update_presence(bot)
+
+
+@bot.event
+async def on_guild_remove(guild: discord.Guild):
+    """On server remove callback"""
     await update_presence(bot)
 
 
