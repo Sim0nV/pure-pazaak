@@ -25,7 +25,7 @@ class PazaakRules(commands.Cog):
         " If the current player's total goes over 20 they bust, automatically"
         " losing the round.\n\nIf the current player decides to forfeit or"
         " doesn't respond in time, it will count as a loss in their record."
-        " After 60 seconds pass, the other player can win by calling timeout."
+        " After 2 minutes pass, the other player can win by calling timeout."
         " After 5 minutes, a timeout occurs automatically.\n\nTo win, a player"
         " must either have a higher score (<=20) than the opponent at the end"
         " of the round, or have nine cards played (including dealer cards). If"
