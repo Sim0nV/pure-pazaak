@@ -13,3 +13,9 @@ SUPPORT_SERVER_PLUG = (
     + SUPPORT_SERVER_LINK
     + ")"
 )
+SUPPORT_SERVER_PLEASE_REPORT = (
+    "Please report this bug in the\n[Pure Pazaak"
+    + " Support Server]("
+    + SUPPORT_SERVER_LINK
+    + ")"
+)

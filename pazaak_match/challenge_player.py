@@ -76,10 +76,8 @@ class ChallengeMenu(View):
                     **{
                         "description": "Error: "
                         + str(e)
-                        + "\n\nPlease report this bug in the\n[Pure Pazaak"
-                        + " Support Server]("
-                        + strings.SUPPORT_SERVER_LINK
-                        + ")"
+                        + "\n\n"
+                        + strings.SUPPORT_SERVER_PLEASE_REPORT
                     },
                 }
                 await interaction.followup.send(
