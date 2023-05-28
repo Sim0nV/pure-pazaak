@@ -437,7 +437,9 @@ async def begin_match(
             "title": strings.MATCH_TITLE,
             "description": "Unable to send match message to <@"
             + str(player_one.id)
-            + ">.\nPlease enable direct messages!",
+            + ">.\nPlease enable direct messages!"
+            + "\n\n"
+            + strings.SUPPORT_SERVER_PLUG,
             "color": colors.ERROR_COLOUR_VALUE,
             "thumbnail": {"url": env.MESSAGE_ERROR_THUMBNAIL},
         }
@@ -460,7 +462,9 @@ async def begin_match(
                 "title": strings.MATCH_TITLE,
                 "description": "Unable to send match message to <@"
                 + str(player_two.id)
-                + ">.\nPlease enable direct messages!",
+                + ">.\nPlease enable direct messages!"
+                + "\n\n"
+                + strings.SUPPORT_SERVER_PLUG,
                 "color": colors.ERROR_COLOUR_VALUE,
                 "thumbnail": {"url": env.MESSAGE_ERROR_THUMBNAIL},
             }
