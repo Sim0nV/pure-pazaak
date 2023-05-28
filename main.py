@@ -5,7 +5,9 @@ from logging import WARNING, INFO
 
 import os
 
-from constants import env
+from constants import env, strings, colors
+
+from random import randint
 
 
 class PurePazaakBot(commands.Bot):
@@ -27,11 +29,28 @@ class PurePazaakBot(commands.Bot):
         await self.load_cogs()
         await bot.sync_commands()
 
-    async def on_command_error(self, ctx, error):
+    async def on_command_error(
+        self, ctx: commands.Context, error: commands.CommandError
+    ):
         """Command error handler"""
         if not isinstance(error, CommandNotFound):
             # If not CommandNotFound error, send error
-            await ctx.send(f"An error occured: {str(error)}")
+            ERROR_EMBED_DICT = {
+                "title": strings.MATCH_TITLE,
+                "description": str(error)
+                + "\n\n"
+                + strings.SUPPORT_SERVER_PLEASE_REPORT,
+                "color": colors.ERROR_COLOUR_VALUE,
+                "thumbnail": {
+                    "url": env.ERROR_THUMBNAILS[
+                        randint(0, len(env.ERROR_THUMBNAILS) - 1)
+                    ]
+                },
+            }
+            await ctx.send(
+                content="<@" + str(ctx.author.id) + ">",
+                embed=discord.Embed.from_dict(ERROR_EMBED_DICT),
+            )
             raise error
 
     async def sync_commands(self):
