@@ -39,11 +39,11 @@
 ## 🃏 Features
 
 <p align="center">
-  <a href="https://youtu.be/MxxmQAGs53o">
+  <a href="https://www.youtube.com/watch?v=MxxmQAGs53o">
   <img src="https://user-images.githubusercontent.com/78996965/207284997-cfa944d8-aad9-4bf8-a1ed-0c2375fae55a.gif">
 </p>
 <p align="center">
-  <a href="https://youtu.be/MxxmQAGs53o">
+  <a href="https://www.youtube.com/watch?v=MxxmQAGs53o">
   Check out our launch trailer to see these features in action!
 </p>
 
@@ -66,9 +66,9 @@
 ## 📄 Dependencies
 
 - [Python 3.9.5](https://www.python.org/)
-- [discord.py 2.1.0 (with Voice Support)](https://github.com/Rapptz/discord.py)
-- [Motor 3.1.1](https://github.com/mongodb/motor)
-- [python-dotenv 0.21.0](https://github.com/theskumar/python-dotenv)
+- [discord.py 2.2.3 (with Voice Support)](https://github.com/Rapptz/discord.py)
+- [Motor 3.1.2](https://github.com/mongodb/motor)
+- [python-dotenv 1.0.0](https://github.com/theskumar/python-dotenv)
 - [ffmpeg 5.1.2](https://ffmpeg.org/)
 
 Dependencies may be installed by running:
