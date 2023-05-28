@@ -52,6 +52,7 @@ DRAW_SOUND = os.getenv("DRAW_SOUND")
 ROUND_END_SOUND = os.getenv("ROUND_END_SOUND")
 FORFEIT_TIMEOUT_SOUND = os.getenv("FORFEIT_TIMEOUT_SOUND")
 MATCH_END_SOUND = os.getenv("MATCH_END_SOUND")
+NINE_CARDS_SOUND = os.getenv("NINE_CARDS_SOUND")
 
 # Card Images dictionary in the format:
 # {

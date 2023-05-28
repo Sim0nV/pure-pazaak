@@ -220,6 +220,9 @@ class MatchPlayer:
                 or self.match.did_current_player_play_nine_cards()
                 or self.match.other_player_data.total > 20
             ):
+                if self.match.did_current_player_play_nine_cards():
+                    sound_to_play = env.NINE_CARDS_SOUND
+
                 # If current player won, increment wins and update embed
                 mention_current_player = (
                     "<@" + str(self.match.current_player_data.member.id) + ">"
