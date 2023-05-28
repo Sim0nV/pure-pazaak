@@ -63,6 +63,14 @@ class ChallengeMenu(View):
             except Exception as e:
                 # If error occurs, send to channel and raise
                 # so it shows in logs
+                MENTION_USERS_CONTENT = (
+                    "<@"
+                    + str(self.player_one.id)
+                    + ">"
+                    + "<@"
+                    + str(self.player_two.id)
+                    + ">"
+                )
                 BEGIN_ERROR_EMBED_DICT = {
                     **self.ERROR_EMBED_DICT,
                     **{
@@ -75,7 +83,16 @@ class ChallengeMenu(View):
                     },
                 }
                 await interaction.followup.send(
-                    embed=Embed.from_dict(BEGIN_ERROR_EMBED_DICT)
+                    content=MENTION_USERS_CONTENT,
+                    embed=Embed.from_dict(BEGIN_ERROR_EMBED_DICT),
+                )
+                await self.player_one.send(
+                    content=MENTION_USERS_CONTENT,
+                    embed=Embed.from_dict(BEGIN_ERROR_EMBED_DICT),
+                )
+                await self.player_two.send(
+                    content=MENTION_USERS_CONTENT,
+                    embed=Embed.from_dict(BEGIN_ERROR_EMBED_DICT),
                 )
                 raise e
 
