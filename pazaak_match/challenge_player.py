@@ -29,6 +29,15 @@ class ChallengeMenu(View):
     CHALLENGE_TIMEOUT_ERROR_STR = "Pazaak challenge request timed out."
     CHALLENGE_DECLINED_STR = "Pazaak challenge request declined."
     CHALLENGE_WITHDRAWN_STR = "Pazaak challenge request withdrawn."
+    ERROR_EMBED_DICT = {
+        "title": strings.CHALLENGE_TITLE,
+        "color": colors.ERROR_COLOUR_VALUE,
+        "thumbnail": {
+            "url": env.ERROR_THUMBNAILS[
+                randint(0, len(env.ERROR_THUMBNAILS) - 1)
+            ]
+        },
+    }
 
     @discord.ui.button(emoji="✅", style=discord.ButtonStyle.grey)
     async def accept(self, interaction: Interaction, button: Button):
@@ -54,7 +63,20 @@ class ChallengeMenu(View):
             except Exception as e:
                 # If error occurs, send to channel and raise
                 # so it shows in logs
-                await interaction.followup.send("Error: " + str(e))
+                BEGIN_ERROR_EMBED_DICT = {
+                    **self.ERROR_EMBED_DICT,
+                    **{
+                        "description": "Error: "
+                        + str(e)
+                        + "\n\nPlease report this bug in the\n[Pure Pazaak"
+                        + " Support Server]("
+                        + strings.SUPPORT_SERVER_LINK
+                        + ")"
+                    },
+                }
+                await interaction.followup.send(
+                    embed=Embed.from_dict(BEGIN_ERROR_EMBED_DICT)
+                )
                 raise e
 
     @discord.ui.button(emoji="❌", style=discord.ButtonStyle.grey)
@@ -77,18 +99,12 @@ class ChallengeMenu(View):
         Args:
             description (str): Description of error embed
         """
-        ERROR_EMBED_DICT = {
-            "title": strings.CHALLENGE_TITLE,
-            "description": description,
-            "color": colors.ERROR_COLOUR_VALUE,
-            "thumbnail": {
-                "url": env.ERROR_THUMBNAILS[
-                    randint(0, len(env.ERROR_THUMBNAILS) - 1)
-                ]
-            },
+        DESC_ERROR_EMBED_DICT = {
+            **self.ERROR_EMBED_DICT,
+            **{"description": description},
         }
         await self.message.edit(
-            embed=Embed.from_dict(ERROR_EMBED_DICT), view=None
+            embed=Embed.from_dict(DESC_ERROR_EMBED_DICT), view=None
         )
         self.stop_listening_challenge_menu()
 
