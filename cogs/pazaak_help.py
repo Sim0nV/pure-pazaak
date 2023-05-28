@@ -15,8 +15,8 @@ class PazaakHelp(commands.Cog):
         "thumbnail": {"url": env.RULES_HELP_THUMBNAIL},
         "fields": [
             {
-                "name": "``/pazaak @user``",
-                "value": "Challenge someone to a Pazaak match",
+                "name": "``/pazaak [@user]``",
+                "value": "Challenge someone to a match of Pazaak",
             },
             {
                 "name": "``/rules``",
@@ -24,7 +24,7 @@ class PazaakHelp(commands.Cog):
             },
             {
                 "name": "``/sfx``",
-                "value": "Toggle Pazaak sound effects during the match",
+                "value": "Toggle Pazaak sound effects",
             },
             {
                 "name": "``/stats [@user]``",
