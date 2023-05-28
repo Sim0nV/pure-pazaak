@@ -44,7 +44,7 @@ class MatchSfx:
                         ),
                     )
                 except Exception as e:
-                    print(e)
+                    print("voice_client.play error: " + e)
                 # Pause, wait, and resume to prevent playback glitches
                 voice_client.pause()
                 await asyncio.sleep(0.6)
