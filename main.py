@@ -17,7 +17,6 @@ class PurePazaakBot(commands.Bot):
         """Initialize Discord bot with command prefix, intents"""
         # Set intents (bot permissions)
         intents = discord.Intents.default()
-        intents.members = True
         # Initialize discord bot
         super().__init__(command_prefix="$", intents=intents)
         self.remove_command("help")  # Remove default discord help command
