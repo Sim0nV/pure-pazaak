@@ -180,7 +180,7 @@ class PazaakSFX(commands.Cog):
                 except Exception as e:
                     await ctx.reply(
                         embed=self.get_error_embed(
-                            self.FAIL_JOIN_ERROR_STR + str(e),
+                            self.FAIL_JOIN_ERROR_STR + "Error: " + str(e),
                             user,
                         )
                     )
