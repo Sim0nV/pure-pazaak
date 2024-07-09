@@ -3,8 +3,8 @@
 
 ---
 
-Special thanks to Uri101Love for allowing us to use their Pazaak card artwork, support them here!
-Credit to Disney/Lucasfilm for Star Wars images and gifs.
+- Special thanks to Uri101Love for allowing us to use their Pazaak card artwork, support them here!
+- Credit to Disney/Lucasfilm for Star Wars images and gifs.
 
 ---
 
